@@ -315,6 +315,10 @@ public class JSONObject {
      * @return A String.
      */
     static public String doubleToString(double d) {
+        if ( d == 0.0 ){
+            // Workaround for XMLVM bug that cause new Double(0.0).isInfinite() to return true.
+            return "0.0";
+        }
         if (Double.isInfinite(d) || Double.isNaN(d)) {
         	return "null";
         }
@@ -1013,12 +1017,16 @@ public class JSONObject {
     static void testValidity(Object o) throws JSONException {
         if (o != null) {
             if (o instanceof Double) {
-                if (((Double)o).isInfinite() || ((Double)o).isNaN()) {
+                if ( new Double(0.0).equals(o)){
+                    // workaround for xmlvm bug that returns true to new Double(0.0).isInfinite()
+                } else if (((Double)o).isInfinite() || ((Double)o).isNaN()) {
                     throw new JSONException(
                         "JSON does not allow non-finite numbers");
                 }
             } else if (o instanceof Float) {
-                if (((Float)o).isInfinite() || ((Float)o).isNaN()) {
+                if ( new Float(0.0).equals(o) ){
+                    // workaround for xmlvm bug that returns true to new Float(0.0).isInfinite()
+                } else if (((Float)o).isInfinite() || ((Float)o).isNaN()) {
                     throw new JSONException(
                         "JSON does not allow non-finite numbers.");
                 }
