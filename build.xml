@@ -56,7 +56,7 @@
          </javadoc>
     </target>
 
-    <target name="jar" depends="compile,Stubs">
+    <target name="-post-compile" depends="Stubs">
         <mkdir dir="build/lib" />
         <zip basedir="${build.classes.dir}" compress="false" destfile="build/lib/main.zip" />
         <zip basedir="build/stubs" compress="false" destfile="build/lib/stubs.zip" />
