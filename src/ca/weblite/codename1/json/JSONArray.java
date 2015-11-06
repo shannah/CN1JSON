@@ -28,6 +28,7 @@ import java.io.IOException;
 import java.io.Writer;
 import java.util.HashMap;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A JSONArray is an ordered sequence of values. Its external text form is a
@@ -150,15 +151,11 @@ public class JSONArray {
      * Construct a JSONArray from a Collection.
      * @param collection     A Collection.
      */
-    public JSONArray(ArrayList collection) {
+    public JSONArray(List collection) {
         if (collection == null) {
             this.myArrayList = new ArrayList();
         } else {
-            int size = collection.size();
-            this.myArrayList = new ArrayList(size);
-            for (int i=0; i < size; i++) {
-                this.myArrayList.add(collection.get(i));
-            }
+            this.myArrayList = new ArrayList(collection);
         }
     }
 

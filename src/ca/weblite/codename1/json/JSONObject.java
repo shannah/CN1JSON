@@ -29,6 +29,8 @@ import java.io.Writer;
 import java.util.HashMap;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
 
 /**
  * A JSONObject is an unordered collection of name/value pairs. Its
@@ -227,16 +229,11 @@ public class JSONObject {
      * @param map A map object that can be used to initialize the contents of
      *  the JSONObject.
      */
-    public JSONObject(HashMap map) {
+    public JSONObject(Map map) {
         if (map == null) {
             this.myHashMap = new HashMap();
         } else {
-            this.myHashMap = new HashMap(map.size());
-            Iterator keys = map.keySet().iterator();
-            while (keys.hasNext()) {
-                Object key = keys.next();
-                this.myHashMap.put(key, map.get(key));
-            }
+            this.myHashMap = new HashMap(map);
         }
     }
     
@@ -1202,6 +1199,12 @@ public class JSONObject {
         if (value instanceof Boolean || value instanceof JSONObject ||
                 value instanceof JSONArray) {
             return value.toString();
+        }
+        if (value instanceof Map) {
+            return new JSONObject((Map)value).toString();
+        }
+        if (value instanceof List) {
+            return new JSONArray((List)value).toString();
         }
         return quote(value.toString());
     }
