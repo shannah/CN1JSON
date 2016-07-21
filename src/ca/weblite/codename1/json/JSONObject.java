@@ -237,6 +237,18 @@ public class JSONObject {
         }
     }
     
+    /**
+     * Construct a JSONObject from a HashMap.
+     * @param map A map object that can be used to initialize the contents of
+     *  the JSONObject.
+     */
+    public JSONObject(HashMap map) {
+        if (map == null) {
+            this.myHashMap = new HashMap();
+        } else {
+            this.myHashMap = new HashMap(map);
+        }
+    }
     
     /**
      * Construct a JSONObject from a string.
