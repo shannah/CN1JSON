@@ -78,10 +78,17 @@ public class JSONArray {
 	}
 
 	/**
+	 *  Compatibility constructor for code compiled against older versions of this library 
+	 *  @param collection 
+	 */
+	public JSONArray(java.util.ArrayList collection) {
+	}
+
+	/**
 	 *  Construct a JSONArray from a Collection.
 	 *  @param collection     A Collection.
 	 */
-	public JSONArray(java.util.ArrayList collection) {
+	public JSONArray(java.util.List collection) {
 	}
 
 	/**

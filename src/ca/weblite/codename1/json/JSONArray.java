@@ -146,6 +146,13 @@ public class JSONArray {
         this(new JSONTokener(string));
     }
 
+    /**
+     * Compatibility constructor for code compiled against older versions of this library 
+     * @param collection 
+     */
+    public JSONArray(ArrayList collection) {
+        this((List)collection);
+    }
 
     /**
      * Construct a JSONArray from a Collection.
