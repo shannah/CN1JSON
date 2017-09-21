@@ -94,6 +94,14 @@ public class JSONObject {
 	 *  @param map A map object that can be used to initialize the contents of
 	 *   the JSONObject.
 	 */
+	public JSONObject(java.util.Map map) {
+	}
+
+	/**
+	 *  Construct a JSONObject from a HashMap.
+	 *  @param map A map object that can be used to initialize the contents of
+	 *   the JSONObject.
+	 */
 	public JSONObject(java.util.HashMap map) {
 	}
 
