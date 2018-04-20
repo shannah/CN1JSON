@@ -32,7 +32,6 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
-import ca.weblite.codename1.json.JSONObject.Null;
 
 /**
  * A JSONObject is an unordered collection of name/value pairs. Its
