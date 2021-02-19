@@ -32,6 +32,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
+
 /**
  * A JSONObject is an unordered collection of name/value pairs. Its
  * external form is a string wrapped in curly braces with colons between the
@@ -1190,6 +1191,9 @@ public class JSONObject {
     static String valueToString(Object value) throws JSONException {
         if (value == null ) {
             return "null";
+        }
+        if (value instanceof Null) {
+            return value.toString();
         }
         if (value instanceof JSONString) {
         	Object o;
